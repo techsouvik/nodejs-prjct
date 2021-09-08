@@ -28,6 +28,6 @@ app.get('/msg',(req,res)=>{
 })
 app.use('/user',userController)
 app.use('/item',itemController)
-app.listen(PORT,()=>{
+app.listen(port,()=>{
      console.log("Server is running at PORT 3000")
 })
