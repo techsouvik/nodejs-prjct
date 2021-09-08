@@ -4,6 +4,7 @@ const bodyparser = require('body-parser')
 const app = express()
 const userController = require('./controllers/userController')
 const itemController = require('./controllers/itemController')
+const port = process.env.PORT || 3000
 app.set('view engine','ejs')
 app.use(bodyparser.urlencoded({
      extended:true
@@ -27,6 +28,6 @@ app.get('/msg',(req,res)=>{
 })
 app.use('/user',userController)
 app.use('/item',itemController)
-app.listen(3000,()=>{
+app.listen(PORT,()=>{
      console.log("Server is running at PORT 3000")
 })
