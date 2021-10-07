@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Sign in</title>
+</head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+	.hide{
+		display:none
+	}
+</style>
+<body>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-md-6">
+			<div class="card">
+			<header class="card-header">
+				<a href="/login" class="float-right btn btn-outline-primary mt-1">Log in</a>
+				<h4 class="card-title mt-2">Register Yourself</h4>
+			</header>
+			<article class="card-body">
+			<form name="f1" id="f1" action="/user" method="POST">
+				<div class="form-group">
+					<label>Name</label>
+					<input type="text" name="uname" id="uname" class="form-control" placeholder="">
+     			</div> 
+				<div class="form-group">
+					<label>Email address</label>
+					<input type="text" name="mail_id" id="mail_id" class="form-control" placeholder="">
+				</div> 
+				<div class="form-row">
+		  			<label>Date Of Birth <small>(in dd/mm/yyyy)</small></label>
+		 			<input type="date" name="dob" id="dob" class="form-control">
+				</div> 
+     			<br>
+     			<div class="form-group">
+					<label>Gender : &nbsp;</label>
+          			<label class="form-check form-check-inline">
+						<input class="form-check-input" type="radio" name="gender" value="Male">
+						<span class="form-check-label"> Male </span>
+					</label>
+					<label class="form-check form-check-inline">
+		  				<input class="form-check-input" type="radio" name="gender" value="Female">
+		  				<span class="form-check-label"> Female</span>
+					</label>
+				</div>
+    				 <div class="form-group">
+					<label>Contact No.</label>
+	  				<input type="text" name="contact_no" id="contact_no" class="form-control" placeholder=" ">
+					</div> 
+     			<div class="form-group">
+					<label>Create password</label>
+	    				<input class="form-control" name="pwd" id="pwd" type="password">
+				</div>
+				<div class="form-group">
+					<label>Enter captcha</label>&nbsp;<input type="button" id="cap" value="&#x27F3;"><span class="capsign"></span>
+					<div id="capimg"></div>
+	    				<input class="form-control" name="captcha" id="captcha" type="text">
+				</div>  
+    				<div class="form-group">
+        				<input type="submit" value="Register" class="btn btn-primary btn-block">
+    				</div>     
+			</form>
+			</article> 
+			<div class="border-top card-body text-center">Have an account? <a href="/login">Log In</a></div>
+			</div> 
+		</div>
+ 
+		<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  			<div class="modal-dialog">
+    				<div class="modal-content">
+      				<div class="modal-header">
+       					<h5 class="modal-title" id="staticBackdropLabel">Details</h5>
+        					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+     						<span aria-hidden="true">&times;</span>
+        					</button>
+      				</div>
+      				<div class="modal-body">
+        					...
+      				</div>
+      				<div class="modal-footer">
+						<button type="button" class="btn btn-alert">Proceed to Log In</button>
+      				</div>
+    				</div>
+  			</div>
+		</div>
+	</div> 
+</div> 
+<br>
+<br>
+</body>
+
+<script>
+
+	var obj=false;
+
+	obj=new XMLHttpRequest();
+	function getDetails(fname)
+	{
+		obj.open("GET",fname,true);
+		obj.onreadystatechange = function()
+		{
+			if (obj.readyState==4 && obj.status==200)
+				{
+					document.getElementById("msg").innerHTML=obj.responseText;
+				}
+		}
+		obj.send(null);
+	}
+
+								$(document).ready(function(){
+
+									$('#cap').click(function(){
+										$.ajax({
+                                                    	url:'/getCaptcha',
+	                                             	method:'GET',
+											contentType:'application/json',
+                                                  	success:function(result) {
+												$('#capimg').html(result);
+                                                    	}
+                                                	})
+									})
+								});
+								$(document).ready(function(){
+
+									$('#captcha').keyup(function(){
+										let val = $('#captcha').val();
+										$.ajax({
+                                                    	url:'/checkCaptcha',
+	                                             	method:'GET',
+											contentType:'application/json',
+											data:JSON.stringify({val:val}),
+                                                  	success:function(result) {
+												$('#capsign').html(result);
+                                                    	}
+                                                	})
+									})
+								});
+</script>
+
+</html>

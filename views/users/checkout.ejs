@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+</head>
+<body>
+     <div class='container'>
+    <div class='row' style='padding-top:25px; padding-bottom:25px;'>
+        <div class='col-md-12'>
+            <div id='mainContentWrapper'>
+                <div class="col-md-8 col-md-offset-2">
+                    <h2 style="text-align: center;">
+                        Review Your Order & Complete Checkout
+                    </h2>
+                    <hr/>
+                    <a href="#" class="btn btn-info" style="width: 100%;">Add More Products & Services</a>
+                    <hr/>
+                    <div class="shopping_cart">
+                        <form class="form-horizontal" role="form" action="" method="post" id="payment-form">
+                            <div class="panel-group" id="accordion">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Review
+                                                Your Order</a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapseOne" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                            <div class="items">
+                                                <div class="col-md-9">
+                                                    <table class="table table-striped">
+                                                        <tr>
+                                                            <td colspan="2">
+                                                                <a class="btn btn-warning btn-sm pull-right"
+                                                                   href="http://www.startajobboard.com/"
+                                                                   title="Remove Item">X</a>
+                                                                <b>Order ID: <%=oid%></b></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <ul>
+                                                                    <li>One Job Posting Credit</li>
+                                                                    <li>Job Distribution*</li>
+                                                                    <li>Social Media Distribution</li>
+                                                                </ul>
+                                                            </td>
+                                                            <td>
+                                                                <b></b>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div style="text-align: center;">
+                                                        <h3>Order Total</h3>
+                                                        <h3><span style="color:green;">&#8377;<%=p%></span></h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <div style="text-align: center; width:100%;"><a style="width:100%;"
+                                                                                        data-toggle="collapse"
+                                                                                        data-parent="#accordion"
+                                                                                        href="#collapseTwo"
+                                                                                        class=" btn btn-success"
+                                                                                        onclick="$(this).fadeOut(); $('#payInfo').fadeIn();">Accept Order</a></div>
+                                    </h4>
+                                </div>
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <div style="text-align: center; width:100%;"><a style="width:100%;"
+                                                                                        data-toggle="collapse"
+                                                                                        data-parent="#accordion"
+                                                                                        href="#collapseTwo"
+                                                                                        class=" btn btn-danger"
+                                                                                        onclick="$(this).fadeOut(); $('#payInfo').fadeIn();">Reject Order</a></div>
+                                    </h4>
+                                </div>
+                            </div>
+                           
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -9,4 +9,6 @@ mongoose.connect('mongodb://localhost:27017/FoodArt',{
      console.log(err)
 })
 require('./NewUser.model')
+require('./NewVendor.model')
 require('./item.model')
+require('./cart.model')

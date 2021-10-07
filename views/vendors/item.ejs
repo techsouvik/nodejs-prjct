@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Items</title>
+</head>
+ <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="style.css">
+<body>
+
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    
+    <div class="fadeIn first">
+      <img src="img2.webp" id="icon" alt="User Icon">
+    </div>
+
+    
+    <form name="f1" id="f1" method="POST" action="/item/save" enctype="multipart/form-data">
+     <input type="text" id="icode" class="fadeIn second" name="icode" placeholder="Code">
+     <input type="text" id="iname" class="fadeIn second" name="iname" placeholder="Name">
+     <input type="text" id="category" class="fadeIn second" name="category" placeholder="Category">
+     <input type="text" id="price" class="fadeIn second" name="price" placeholder="Price">
+      <div class="custom-file col-lg-11">
+        <input type="file" class="custom-file-input" id="image" name="image" required>
+        <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+        <div class="invalid-feedback">Example invalid custom file feedback</div>
+      </div>
+      
+     <input type="submit" class="underlineHover" value="Submit">
+    </form>
+
+  </div>
+</div>
+</body>
+</html>
